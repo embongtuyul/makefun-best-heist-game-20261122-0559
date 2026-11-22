@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE AURELIA JOB — Midnight at the Marlow Museum</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="stage">
+  <canvas id="game" width="1280" height="720"></canvas>
+
+  <div id="hud-top">
+    <div class="hud-left">
+      <div id="hud-level">Gallery I — The Atrium</div>
+      <div id="hud-objective">Steal the AURELIA STAR — stay out of the cones.</div>
+    </div>
+    <div class="hud-mid">
+      <div id="hud-alarm-label">ALARM 0%</div>
+      <div id="hud-alarm-bar"><div id="hud-alarm-fill"></div></div>
+      <div id="hud-event"></div>
+    </div>
+    <div class="hud-right">
+      <div id="hud-loot">$0</div>
+      <div id="hud-timer">00:00</div>
+      <div id="hud-tools">EMP ×2 [1] &nbsp; SMOKE ×2 [2] &nbsp; DECOY ×3 [3]</div>
+    </div>
+  </div>
+
+  <div id="hud-bottom">
+    <div id="hud-stance">WALKING</div>
+    <div id="hud-prompt">WASD move · Shift sprint · C sneak · E grab · 1 EMP · 2 smoke · 3 decoy</div>
+    <div id="hud-mute">M — sound</div>
+  </div>
+
+  <div class="overlay" id="ov-menu">
+    <div class="panel">
+      <h1>THE AURELIA JOB</h1>
+      <h2>Midnight at the Marlow Museum</h2>
+      <p>Three galleries. Nine guards with vision cones. Eight sweeping cameras.
+      Five laser tripwires. One alarm meter between you and lockdown.</p>
+      <p>Lift the <b>Aurelia Star</b>, the <b>Sun Opal</b> and every side piece you dare —
+      then reach the exit before the museum wakes up.</p>
+      <ul>
+        <li><b>WASD / Arrows</b> — move &nbsp;·&nbsp; <b>Shift</b> — sprint (fast, loud) &nbsp;·&nbsp; <b>C</b> — sneak (slow, silent)</li>
+        <li><b>E</b> — grab loot / pick the vault &nbsp;·&nbsp; <b>1</b> EMP — kill cameras &amp; lasers 8s &nbsp;·&nbsp; <b>2</b> smoke &nbsp;·&nbsp; <b>3</b> decoy coin</li>
+        <li>Guards investigate noise and last-seen spots. Cameras and lasers feed the alarm. At 100% — lockdown.</li>
+        <li>Darkness hides you; lamplight exposes you. Never spotted: <b>$5,000 ghost bonus</b>.</li>
+      </ul>
+      <button id="btn-start">BEGIN THE HEIST</button>
+      <div class="fine">A complete heist game — 3 levels, guards, cameras, lasers, loot, alarm, getaway. No network, no build step.</div>
+    </div>
+  </div>
+
+  <div class="overlay" id="ov-pause" style="display:none">
+    <div class="panel small">
+      <h1>PAUSED</h1>
+      <p>The museum holds its breath.</p>
+      <p>Esc — resume &nbsp;·&nbsp; R — restart gallery &nbsp;·&nbsp; M — sound</p>
+    </div>
+  </div>
+
+  <div class="overlay" id="ov-caught" style="display:none">
+    <div class="panel small">
+      <h1 class="red">CAUGHT</h1>
+      <p id="caught-reason">A guard caught you.</p>
+      <p id="caught-stats"></p>
+      <button id="btn-retry">TRY THE GALLERY AGAIN (R)</button>
+      <button id="btn-menu" class="ghost">BACK TO MENU</button>
+    </div>
+  </div>
+
+  <div class="overlay" id="ov-clear" style="display:none">
+    <div class="panel small">
+      <h1 class="green" id="clear-title">GALLERY CLEAR</h1>
+      <p id="clear-bonus"></p>
+      <p id="clear-loot"></p>
+      <button id="btn-next">NEXT GALLERY (Enter)</button>
+    </div>
+  </div>
+
+  <div class="overlay" id="ov-win" style="display:none">
+    <div class="panel">
+      <h1 class="gold">CLEAN GETAWAY</h1>
+      <h2>The Marlow Museum will not notice until morning.</h2>
+      <div id="win-rank">S</div>
+      <p id="win-loot">$0</p>
+      <p id="win-stats"></p>
+      <p>Rank S — 90% of the loot, never spotted. A — 80%. B — 60%.</p>
+      <button id="btn-again">RUN IT AGAIN</button>
+    </div>
+  </div>
+</div>
+
+<script src="src/config.js"></script>
+<script src="src/vision.js"></script>
+<script src="src/levels.js"></script>
+<script src="src/player.js"></script>
+<script src="src/guard.js"></script>
+<script src="src/camera.js"></script>
+<script src="src/laser.js"></script>
+<script src="src/alarm.js"></script>
+<script src="src/audio.js"></script>
+<script src="src/input.js"></script>
+<script src="src/render.js"></script>
+<script src="src/hud.js"></script>
+<script src="src/shots.js"></script>
+<script src="src/main.js"></script>
+</body>
+</html>
